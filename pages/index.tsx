@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import { useState, useEffect } from 'react';
 import { Advertisement } from '../types/advertisement';
@@ -30,6 +29,8 @@ export default function Home() {
   }, []);
 
   const changeAd = () => {
+    if (adData[num].limit == -1) return;
+
     setAdStartTime(adData[num].startTime.toString());
     setAdEndtime(adData[num].endTime.toString());
 
@@ -77,25 +78,27 @@ export default function Home() {
         <div>{qrcode}</div>
         <div>
           <div>
-            <div>
-              광고ID: <input value={adId}></input>
+            <div className={styles.inputBox}>
+              광고ID: <input value={adId} readOnly></input>
             </div>
-            <div>
-              광고종류: <input value={adType}></input>
+            <div className={styles.inputBox}>
+              광고종류: <input value={adType} readOnly></input>
             </div>
-            <div>
-              광고 표시일: <input value={adDate}></input>
+            <div className={styles.inputBox}>
+              광고 표시일: <input value={adDate} readOnly></input>
             </div>
-            <div>
-              광고 표시 시작 시간:<input value={adStartTime}></input>
+            <div className={styles.inputBox}>
+              광고 표시 시작 시간:<input value={adStartTime} readOnly></input>
             </div>
-            <div>
-              광고 표시 종료 시간:<input value={adEndTime}></input>
+            <div className={styles.inputBox}>
+              광고 표시 종료 시간:<input value={adEndTime} readOnly></input>
             </div>
-            <div>
-              앨리베이터별 하루 송출 제한 횟수<input value={adlimit}></input>
+            <div className={styles.inputBox}>
+              하루 송출 제한 횟수:<input value={adlimit} readOnly></input>
             </div>
-            엘리베이터 ID <input value={eleId}></input>
+            <div className={styles.inputBox}>
+              엘리베이터 ID: <input value={eleId} readOnly></input>
+            </div>
           </div>
         </div>
       </main>
