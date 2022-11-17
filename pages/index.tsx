@@ -24,7 +24,7 @@ export default function Home() {
       changeAd();
       let timer = setInterval(() => {
         changeAd();
-      }, 10000);
+      }, 30000);
     });
   }, []);
 
