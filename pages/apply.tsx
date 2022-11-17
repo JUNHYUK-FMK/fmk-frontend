@@ -44,7 +44,7 @@ export default function Apply() {
             메일 주소: <input id="email" name="email" required></input>
           </div>
           <div className={styles.agree}>
-            약관 동의: <input id="YES" value="YES" name="agree" type="radio" checked />예
+            약관 동의: <input id="YES" value="YES" name="agree" type="radio" checked={true} />예
             <input id="NO" value="NO" name="agree" type="radio" />
             아니오
           </div>
